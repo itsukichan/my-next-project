@@ -22,3 +22,9 @@
     padding: 24px 16px 8px;
   }
 }
+
+.items {
+  display: flex;
+  color: #fff;
+  gap: 40px;
+}
