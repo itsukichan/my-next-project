@@ -14,6 +14,8 @@ type Props = {
   };
 };
 
+export const revalidate = 0;
+
 export async function generateMetadata({
   params,
   searchParams,
