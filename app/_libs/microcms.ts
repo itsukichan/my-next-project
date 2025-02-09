@@ -55,12 +55,17 @@ export const getNewsList = async (queries?: MicroCMSQueries) => {
 
 export const getNewsDetail = async (
   contentId: string,
-  queries?: MicroCMSQueries
+  queries?: MicroCMSQueries,
 ) => {
   const detailData = await client.getListDetail<News>({
     endpoint: "news",
     contentId,
-    queries
+    queries,
+    customRequestInit: {
+      next: {
+        revalidate: queries?.draftKey === undefined ? 60 : 0,
+      },
+    },
   });
   return detailData;
 }
