@@ -17,9 +17,11 @@ export default async function Home() {
     <>
       <section className={styles.top}>
         <div>
-          <h1 className={styles.title}>テクノロジーの力で世界を変える</h1>
+          <h1 className={styles.title}>
+            TechLog <span className="text-md">- テクログ -</span>
+          </h1>
           <p className={styles.description}>
-            私たちは市場をリードしているグローバルテックカンパニーです。
+            テクテクと歩きながら技術を学び足跡を残すようなブログです。
           </p>
         </div>
         <Image className={styles.bgimg} src="/img-mv.jpg" alt="" width={4000} height={1200} />

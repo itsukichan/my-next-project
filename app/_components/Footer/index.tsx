@@ -17,7 +17,7 @@ export default function Footer() {
           </li>
         </ul>
       </nav>
-      <p className={styles.cr}>&copy; SIMPLE. ALL Rights Reserved 2024</p>
+      <p className={styles.cr}>&copy; TechLog. ALL Rights Reserved 2025</p>
     </footer>
   )
 }

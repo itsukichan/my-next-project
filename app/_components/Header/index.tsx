@@ -7,7 +7,7 @@ export default function Header() {
     <header className={styles.header}>
       <h1 className="text-3xl font-bold text-white">
         <Link href="/" className={styles.logoLink}>
-          TechLog - テクログ -
+          TechLog
         </Link>
       </h1>
       <Menu />

@@ -16,13 +16,13 @@ export default function Menu() {
       <nav className={cx(styles.nav, isOpen && styles.open)}>
         <ul className={styles.items}>
           <li>
-            <Link href="/news">ニュース</Link>
+            <Link href="https://resplendent-faloodeh-da4fb1.netlify.app" target="_blank">Profile</Link>
           </li>
           <li>
-            <Link href="/members">メンバー</Link>
+            <Link href="/news">News</Link>
           </li>
           <li>
-            <Link href="/contact">お問い合わせ</Link>
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
         <button className={cx(styles.button, styles.close)} onClick={close}>
