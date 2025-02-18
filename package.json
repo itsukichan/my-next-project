@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.0.6",
     "classnames": "^2.5.1",
     "dayjs": "^1.11.10",
     "microcms-js-sdk": "^3.1.0",
-    "next": "14.1.4",
+    "next": "^14.2.24",
     "nextjs-basic-auth-middleware": "^3.1.0",
+    "postcss": "^8.5.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwindcss": "^4.0.6"
   },
   "devDependencies": {
     "@types/node": "^20",

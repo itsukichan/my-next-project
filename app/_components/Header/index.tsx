@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import styles from './index.module.css';
 import Menu from '../Menu';
@@ -6,16 +5,11 @@ import Menu from '../Menu';
 export default function Header() {
   return (
     <header className={styles.header}>
-      <Link href="/" className={styles.logoLink}>
-        <Image
-          src="/logo.svg"
-          alt="SIMPLE"
-          className={styles.logo}
-          width={348}
-          height={133}
-          priority
-        />
-      </Link>
+      <h1 className="text-3xl font-bold text-white">
+        <Link href="/" className={styles.logoLink}>
+          TechLog - テクログ -
+        </Link>
+      </h1>
       <Menu />
     </header>
   )
