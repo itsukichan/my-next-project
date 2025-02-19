@@ -14,7 +14,6 @@ type Props = {
   };
 };
 
-
 export async function generateMetadata({
   params,
   searchParams,

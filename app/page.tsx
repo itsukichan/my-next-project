@@ -24,7 +24,7 @@ export default async function Home() {
             テクテクと歩きながら技術を学び足跡を残すようなブログです。
           </p>
         </div>
-        <Image className={styles.bgimg} src="/img-mv.jpg" alt="" width={4000} height={1200} />
+        <Image className={styles.bgimg} src="/img-mv.jpg" alt="" width={4000} height={1200} priority sizes="(max-width: 640px) 100vw, 50vw" />
       </section>
       <section className={styles.news}>
         <h2 className={styles.newsTitle}>News</h2>
