@@ -16,9 +16,13 @@ export default async function Page({ searchParams }: Props) {
   });
 
   return (
-    <>
-      <SearchField />
-      <NewsList news={news} />
-    </>
+    <div className="container mx-auto">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 md:p-8">
+        <div className="mb-12">
+          <SearchField />
+        </div>
+        <NewsList news={news} />
+      </div>
+    </div>
   )
 }

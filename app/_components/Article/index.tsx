@@ -3,7 +3,6 @@ import Image from 'next/image'
 import type { News } from '@/app/_libs/microcms'
 import Date from '@/app/_components/Date'
 import Category from '@/app/_components/Category'
-import styles from './index.module.css'
 
 type Props = {
   data: News
@@ -12,11 +11,10 @@ type Props = {
 export default function Article({ data }: Props) {
   return (
     <main>
-      <h1 className={styles.title}>{data.title}</h1>
-      <p className={styles.description}>{data.description}</p>
-      <div className={styles.meta}>
-        <Link href={`/news/category/${data.category.id}`}
-          className={styles.categoryLink}>
+      <h1 className="text-3xl md:text-4xl mb-6 text-left">{data.title}</h1>
+      <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 text-left">{data.description}</p>
+      <div className="flex items-center gap-6 mb-16">
+        <Link href={`/news/category/${data.category.id}`}>
           <Category category={data.category} />
         </Link>
         <Date date={data.publishedAt ?? data.createdAt} />
@@ -25,13 +23,13 @@ export default function Article({ data }: Props) {
         <Image
           src={data.thumbnail.url}
           alt=""
-          className={styles.thumbnail}
+          className="w-full h-auto mb-16 rounded-lg"
           width={data.thumbnail.width}
           height={data.thumbnail.height}
         />
       )}
       <div
-        className={styles.content}
+        className="prose prose-lg dark:prose-invert max-w-none"
         dangerouslySetInnerHTML={{ __html: data.content }}
       />
     </main>

@@ -32,11 +32,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" suppressHydrationWarning>
-      <body className={`${inter.className} bg-background-light text-gray-900 dark:bg-background-dark dark:text-gray-100`}>
-        <Header />
-        {children}
-        <Footer />
+    <html lang="ja" suppressHydrationWarning className="h-full">
+      <body className={`${inter.className} min-h-screen bg-gray-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100`}>
+        <div className="flex min-h-screen flex-col">
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </div>
       </body>
       {/* <GoogleAnalytics gaId="" /> */}
     </html>

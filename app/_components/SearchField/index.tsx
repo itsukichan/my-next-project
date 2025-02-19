@@ -2,7 +2,6 @@
 
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
-import styles from './index.module.css';
 import { Suspense } from 'react';
 
 function SearchFieldComponent() {
@@ -19,15 +18,24 @@ function SearchFieldComponent() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.from}>
-      <label className={styles.search}>
-        <Image src="/search.svg" alt="検索" width={16} height={16} loading="eager" />
+    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto">
+      <label className="relative flex items-center">
+        <Image
+          src="/search.svg"
+          alt="検索"
+          width={16}
+          height={16}
+          loading="eager"
+          className="absolute left-3 dark:invert"
+        />
         <input
           type="text"
           name="q"
           defaultValue={searchParams.get('q') || undefined}
           placeholder="キーワードを入力"
-          className={styles.searchInput}
+          className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700
+                     rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+                     dark:bg-gray-800 dark:text-gray-100"
         />
       </label>
     </form>

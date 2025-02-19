@@ -1,6 +1,5 @@
 import { NEWS_LIST_LIMIT } from '@/app/_constants';
 import Link from 'next/link';
-import styles from './index.module.css';
 
 type Props = {
   totalCount: number;
@@ -20,15 +19,23 @@ export default function Pagination({
 
   return (
     <nav>
-      <ul className={styles.container}>
+      <ul className="flex items-center justify-center gap-2">
         {pages.map((p) => (
-          <li className={styles.list} key={p}>
+          <li key={p}>
             {current !== p ? (
-              <Link href={`/news/p/${p}`} className={styles.item}>
+              <Link
+                href={`/news/p/${p}`}
+                className="flex items-center justify-center w-10 h-10 rounded-lg
+                         text-gray-700 hover:bg-gray-100 dark:text-gray-300
+                         dark:hover:bg-gray-800 transition-colors"
+              >
                 {p}
               </Link>
             ) : (
-              <span className={`${styles.item} ${styles.current}`}>{p}</span>
+              <span className="flex items-center justify-center w-10 h-10 rounded-lg
+                             bg-blue-600 text-white">
+                {p}
+              </span>
             )}
           </li>
         ))}

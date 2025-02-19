@@ -4,31 +4,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useState } from 'react'
 import logo from '@/public/logo.svg'
-
-const menuItems: {
-  label: string,
-  href: string,
-  isBlank?: boolean
-}[] = [
-    {
-      label: 'Profile',
-      href: 'https://resplendent-faloodeh-da4fb1.netlify.app',
-      isBlank: true
-    },
-    {
-      label: 'News',
-      href: '/news'
-    },
-    {
-      label: 'Contact',
-      href: '/contact'
-    },
-    {
-      label: 'Source',
-      href: 'https://github.com/techlog-dev/techlog',
-      isBlank: true
-    }
-  ]
+import { navigationItems } from '@/app/_constants/navigation'
 
 export default function Menu() {
   const [isOpen, setOpen] = useState<boolean>(false);
@@ -39,11 +15,11 @@ export default function Menu() {
       {/* PC用メニュー */}
       <nav className="hidden sm:block">
         <ul className="flex items-center gap-4">
-          {menuItems.map((item) => (
+          {navigationItems.map((item) => (
             <li key={item.label}>
               <Link
                 href={item.href}
-                target={item.isBlank ? '_blank' : ''}
+                target={item.isBlank ? '_blank' : undefined}
                 className="text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
               >
                 {item.label}
@@ -75,7 +51,7 @@ export default function Menu() {
           style={{ height: '100dvh' }}
         >
           <div className="h-full flex flex-col px-6">
-            <div className="pt-6">
+            <div className="pt-7">
               <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
                 <Image src={logo} alt="TechLog" width={32} height={32} priority className="dark:invert" />
                 <span className="font-semibold text-md text-gray-900 dark:text-gray-100">TechLog</span>
@@ -83,11 +59,11 @@ export default function Menu() {
             </div>
 
             <ul className="flex flex-col gap-6 mt-12">
-              {menuItems.map((item) => (
+              {navigationItems.map((item) => (
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    target={item.isBlank ? '_blank' : ''}
+                    target={item.isBlank ? '_blank' : undefined}
                     className="text-xl text-gray-700 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100"
                     onClick={() => setOpen(false)}
                   >
