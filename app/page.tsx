@@ -13,22 +13,34 @@ export default async function Home() {
 
   return (
     <>
-      <section className="relative flex min-h-[calc(100vh-4rem)] items-center justify-center overflow-hidden">
+      <section className="relative flex h-[600px] sm:h-[700px] items-center justify-center overflow-hidden bg-gradient-to-b from-black/30 to-black/10">
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
-          <h1 className="mb-6">
-            <span className="bg-gradient-to-r from-blue-600 to-teal-500 bg-clip-text text-5xl font-extrabold tracking-tight text-transparent sm:text-6xl">
-              TechLog
-            </span>
-            <span className="mt-3 block text-lg font-medium text-gray-600 dark:text-gray-300 sm:text-xl">
-              - テクログ -
-            </span>
+          <h1 className="mb-8 sm:mb-12 text-center">
+            <div className="mb-4 sm:mb-6 inline-block animate-float">
+              <Image
+                src="/logo.svg"
+                alt="TechLog"
+                width={90}
+                height={90}
+                className="dark:invert transition-all duration-500 hover:scale-110 hover:rotate-3 sm:w-[120px] sm:h-[120px]"
+                priority
+              />
+            </div>
+            <div className="space-y-2 sm:space-y-4">
+              <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-teal-400 bg-clip-text text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-transparent drop-shadow-lg leading-[1.2]">
+                TechLog
+              </span>
+              <span className="block text-lg sm:text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-200 tracking-[0.2em] sm:tracking-[0.3em] mt-2 sm:mt-4 opacity-90 transition-all duration-500 hover:opacity-100">
+                - テクログ -
+              </span>
+            </div>
           </h1>
-          <p className="mx-auto max-w-2xl text-lg leading-relaxed text-gray-700 dark:text-gray-300 sm:text-xl">
-            テクテクと歩きながら技術を学び足跡を残すようなブログです。
+          <p className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-800 dark:text-gray-200 font-medium">
+            テクテクと歩きながら技術を学び<br className="hidden sm:block" />足跡を残すようなブログです。
           </p>
         </div>
         <Image
-          className="absolute inset-0 h-full w-full object-cover opacity-80 transition duration-300 hover:scale-105"
+          className="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-700 hover:scale-105 hover:opacity-80"
           src="/img-mv.jpg"
           alt=""
           width={4000}
@@ -37,8 +49,8 @@ export default async function Home() {
           sizes="100vw"
         />
       </section>
-      <section className="relative mx-auto max-w-4xl px-4">
-        <div className="rounded-2xl bg-white p-8 shadow-xl transition-all duration-300 hover:shadow-2xl dark:bg-gray-900 sm:p-12 -mt-20">
+      <section className="relative mx-auto max-w-2xl px-4">
+        <div className="rounded-2xl bg-white shadow-xl transition-all duration-300 hover:shadow-2xl dark:bg-gray-900 -mt-20 mx-auto py-10 px-6 sm:py-12 sm:px-8">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             News
           </h2>

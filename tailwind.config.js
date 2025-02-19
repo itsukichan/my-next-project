@@ -11,33 +11,72 @@ module.exports = {
       lg: "976px",
       xl: "1200px",
     },
-    colors: {
-      "background-light": "#FFFFFF", // ライトモードの背景色
-      "background-dark": "#121212", // ダークモードの背景色
-      accent: {
-        DEFAULT: "#6A1B9A", // ライトモードの強調色 (紫)
-        dark: "#AB47BC", // ダークモードの強調色 (明るい紫)
+    extend: {
+      colors: {
+        // 基本カラー
+        white: "#FFFFFF",
+        black: "#121212",
+        gray: {
+          50: "#F9FAFB",
+          100: "#F3F4F6",
+          200: "#E5E7EB",
+          300: "#D1D5DB",
+          400: "#9CA3AF",
+          500: "#6B7280",
+          600: "#4B5563",
+          700: "#374151",
+          800: "#1F2937",
+          900: "#111827",
+        },
+        // アクセントカラー
+        blue: {
+          500: "#3B82F6",
+          600: "#2563EB",
+          700: "#1D4ED8",
+        },
+        // ブランドカラー
+        primary: {
+          DEFAULT: "#6A1B9A", // メインカラー（紫）
+          light: "#AB47BC",
+          dark: "#4A148C",
+        },
+        secondary: {
+          DEFAULT: "#2E7D32", // サブカラー（緑）
+          light: "#66BB6A",
+          dark: "#1B5E20",
+        },
       },
-      "secondary-accent": {
-        DEFAULT: "#2E7D32", // ライトモードの強調色のバリエーション (緑)
-        dark: "#66BB6A", // ダークモードの強調色のバリエーション (明るい緑)
+      backgroundColor: {
+        light: "#FFFFFF",
+        dark: "#121212",
       },
-      support: {
-        DEFAULT: "#7A7D7E", // ライトモードの補助色
-        dark: "#B0BEC5", // ダークモードの補助色
+      animation: {
+        "spin-slow": "spin 3s linear infinite",
+        pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
-      dark: {
-        "background-light": "#121212", // ダークモードでのライト背景色
-        "background-dark": "#FFFFFF", // ダークモードでのダーク背景色
+      keyframes: {
+        spin: {
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
+        },
+        pulse: {
+          "0%, 100%": { opacity: 1 },
+          "50%": { opacity: 0.5 },
+        },
       },
     },
     fontFamily: {
-      sans: ["Inter var", ...defaultTheme.fontFamily.sans],
+      sans: [
+        "var(--font-noto-sans-jp)",
+        "var(--font-inter)",
+        ...defaultTheme.fontFamily.sans,
+      ],
     },
     backgroundImage: {
       // "tutorial-bg": "url('/public/bg-graphic.jpg')",
     },
-    extend: {},
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"), // proseクラスのために必要
+  ],
 };

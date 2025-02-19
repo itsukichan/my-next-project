@@ -15,7 +15,7 @@ export default function Layout({ children }: Props) {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Hero title="News" sub="ニュース" />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto">
         <Sheet>
           <div className="prose prose-lg dark:prose-invert max-w-none">
             {children}

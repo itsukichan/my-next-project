@@ -1,11 +1,23 @@
 import './globals.css';
-// import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata } from 'next';
+import { ThemeProvider } from '@/app/_providers/theme-provider'
+import ViewTransitionProvider from '@/app/_components/ViewTransitionProvider'
 import Header from './_components/Header';
 import Footer from './_components/Footer';
-import { Inter } from "next/font/google"
+import { Inter, Noto_Sans_JP } from "next/font/google"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({
+  subsets: ["latin"],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  weight: ['400', '500', '700'],
+  display: 'swap',
+  variable: '--font-noto-sans-jp',
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
@@ -32,15 +44,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ja" suppressHydrationWarning className="h-full">
-      <body className={`${inter.className} min-h-screen bg-gray-50 text-gray-900 antialiased dark:bg-gray-900 dark:text-gray-100`}>
-        <div className="flex min-h-screen flex-col">
-          <Header />
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
+    <html lang="ja" suppressHydrationWarning>
+      <body className={`${inter.variable} ${notoSansJP.variable} min-h-screen antialiased font-sans
+        bg-white dark:bg-gray-900
+        text-gray-900 dark:text-gray-100`}>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ViewTransitionProvider>
+            <div className="flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </div>
+          </ViewTransitionProvider>
+        </ThemeProvider>
       </body>
-      {/* <GoogleAnalytics gaId="" /> */}
     </html>
   );
 }

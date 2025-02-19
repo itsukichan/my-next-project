@@ -28,7 +28,7 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="container mx-auto">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-4 md:p-8">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl py-10 px-4 md:py-20 md:px-8">
         <NewsList news={news} />
         <div className="mt-12">
           <Pagination totalCount={totalCount} current={current} />

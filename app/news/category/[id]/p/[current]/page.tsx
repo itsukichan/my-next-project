@@ -2,8 +2,8 @@ import { notFound } from 'next/navigation';
 import { getCategoryDetail, getNewsList } from '@/app/_libs/microcms';
 import NewsList from '@/app/_components/NewsList';
 import Pagination from '@/app/_components/Pagination';
+import Sheet from '@/app/_components/Sheet';
 import { NEWS_LIST_LIMIT } from '@/app/_constants';
-import { Sheet } from '@/app/_components/Sheet';
 
 type Props = {
   params: {
@@ -32,17 +32,15 @@ export default async function Page({ params }: Props) {
   }
 
   return (
-    <div className="max-w-2xl mx-auto px-6 py-12 sm:py-16">
+    <div className="max-w-2xl mx-auto p-6 sm:px-8 py-12 sm:py-16">
       <Sheet>
-        <div className="p-6 sm:p-8">
-          <NewsList news={news} />
-          <div className="mt-8">
-            <Pagination
-              totalCount={totalCount}
-              current={current}
-              basePath={`/news/category/${category.id}`}
-            />
-          </div>
+        <NewsList news={news} />
+        <div className="mt-8">
+          <Pagination
+            totalCount={totalCount}
+            current={current}
+            basePath={`/news/category/${category.id}`}
+          />
         </div>
       </Sheet>
     </div>
