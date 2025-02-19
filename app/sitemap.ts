@@ -26,10 +26,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: now,
     },
     {
-      url: buildUrl('/members'),
-      lastModified: now,
-    },
-    {
       url: buildUrl('/contact'),
       lastModified: now,
     },
