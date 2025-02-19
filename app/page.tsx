@@ -1,5 +1,4 @@
 import Image from "next/image";
-import styles from "./page.module.css";
 import { getNewsList } from '@/app/_libs/microcms';
 import { TOP_NEWS_LIST_LIMIT } from '@/app/_constants';
 import ButtonLink from '@/app/_components/ButtonLink'
@@ -15,21 +14,34 @@ export default async function Home() {
 
   return (
     <>
-      <section className={styles.top}>
-        <div>
-          <h1 className={styles.title}>
-            TechLog <span className="text-md">- テクログ -</span>
+      <section className="relative min-h-[560px] flex items-center justify-center px-4 py-16">
+        <div className="relative z-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-teal-500">
+              TechLog
+            </span>
+            <span className="block text-lg md:text-xl mt-2 font-medium text-gray-600 dark:text-gray-300">
+              - テクログ -
+            </span>
           </h1>
-          <p className={styles.description}>
+          <p className="text-lg md:text-xl text-gray-700 max-w-2xl mx-auto dark:text-gray-300">
             テクテクと歩きながら技術を学び足跡を残すようなブログです。
           </p>
         </div>
-        <Image className={styles.bgimg} src="/img-mv.jpg" alt="" width={4000} height={1200} priority sizes="(max-width: 640px) 100vw, 50vw" />
+        <Image
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
+          src="/img-mv.jpg"
+          alt=""
+          width={4000}
+          height={1200}
+          priority
+          sizes="(max-width: 640px) 100vw, 50vw"
+        />
       </section>
-      <section className={styles.news}>
-        <h2 className={styles.newsTitle}>News</h2>
+      <section className="-mt-16 py-16 px-4 max-w-2xl mx-auto bg-white dark:bg-gray-900 rounded-lg shadow-lg">
+        <h2 className="text-3xl font-bold text-center mb-8">News</h2>
         <NewsList news={data.contents} />
-        <div className={styles.newsLink}>
+        <div className="text-center mt-8">
           <ButtonLink href="/news">もっとみる</ButtonLink>
         </div>
       </section>
