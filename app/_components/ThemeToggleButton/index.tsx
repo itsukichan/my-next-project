@@ -16,14 +16,10 @@ export default function ThemeToggleButton() {
     return null // 初期レンダリング時は何も表示しない
   }
 
-  const toggleDarkMode = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
-  }
-
   return (
     <button
       type="button"
-      onClick={toggleDarkMode}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-pressed={theme === 'dark'}
       className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-all duration-500 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
     >

@@ -22,11 +22,10 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
   title: {
-    template: '%s | シンプルなコーポレートサイト',
-    default: 'シンプルなコーポレートサイト',
+    template: '%s | TechLog',
+    default: 'TechLog',
   },
-  description:
-    '「Next.js＋ヘッドレスCMSではじめる！ かんたん・モダンWebサイト制作入門」で作成されるサイトです。',
+  description: 'TechLogは最新のテクノロジーに関する情報を発信するメディアです。',
   openGraph: {
     title: 'シンプルなコーポレートサイト',
     description:
@@ -40,14 +39,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head />
       <body className={`${inter.variable} ${notoSansJP.variable} min-h-screen antialiased font-sans
         bg-white dark:bg-gray-900
-        text-gray-900 dark:text-gray-100`}>
+        text-gray-900 dark:text-gray-100 pt-[72px]`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -55,11 +55,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ViewTransitionProvider>
-            <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex-1">{children}</main>
-              <Footer />
-            </div>
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
           </ViewTransitionProvider>
         </ThemeProvider>
       </body>

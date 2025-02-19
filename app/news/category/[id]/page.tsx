@@ -20,7 +20,7 @@ export default async function Page({ params }: Props) {
   });
 
   return (
-    <div className="container mx-auto">
+    <div className="container max-w-2xl mx-auto">
       <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl py-10 px-4 md:py-20 md:px-8">
         <div className="flex items-center gap-3 mb-8">
           <Category category={category} />

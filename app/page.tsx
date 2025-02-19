@@ -16,7 +16,7 @@ export default async function Home() {
       <section className="relative flex h-[600px] sm:h-[700px] items-center justify-center overflow-hidden bg-gradient-to-b from-black/30 to-black/10">
         <div className="relative z-10 mx-auto max-w-4xl px-4 text-center">
           <h1 className="mb-8 sm:mb-12 text-center">
-            <div className="mb-4 sm:mb-6 inline-block animate-float">
+            <div className="mb-4 sm:mb-6 inline-block">
               <Image
                 src="/logo.svg"
                 alt="TechLog"
@@ -27,18 +27,19 @@ export default async function Home() {
               />
             </div>
             <div className="space-y-2 sm:space-y-4">
-              <span className="block bg-gradient-to-r from-blue-500 via-purple-500 to-teal-400 bg-clip-text text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-transparent drop-shadow-lg leading-[1.2]">
+              <span className="relative block text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight leading-[1.2] text-white drop-shadow-lg hover:scale-105 transition-all duration-500">
                 TechLog
               </span>
-              <span className="block text-lg sm:text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-200 tracking-[0.2em] sm:tracking-[0.3em] mt-2 sm:mt-4 opacity-90 transition-all duration-500 hover:opacity-100">
+              <span className="block text-lg sm:text-xl md:text-2xl font-medium tracking-[0.2em] sm:tracking-[0.3em] mt-2 sm:mt-4 text-white/90">
                 - テクログ -
               </span>
             </div>
           </h1>
-          <p className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-800 dark:text-gray-200 font-medium">
-            テクテクと歩きながら技術を学び<br className="hidden sm:block" />足跡を残すようなブログです。
+          <p className="mx-auto max-w-2xl text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-white/90 font-medium">
+            技術の道をテクテク進みながら、<br className="block sm:hidden" />ログを積み重ねる。
           </p>
         </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/30 dark:from-black/70 dark:to-black/40" />
         <Image
           className="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-700 hover:scale-105 hover:opacity-80"
           src="/img-mv.jpg"
@@ -50,7 +51,7 @@ export default async function Home() {
         />
       </section>
       <section className="relative mx-auto max-w-2xl px-4">
-        <div className="rounded-2xl bg-white shadow-xl transition-all duration-300 hover:shadow-2xl dark:bg-gray-900 -mt-20 mx-auto py-10 px-6 sm:py-12 sm:px-8">
+        <div className="rounded-2xl bg-white/90 backdrop-blur-sm shadow-xl transition-all duration-300 hover:shadow-2xl dark:bg-gray-800/90 -mt-20 mx-auto py-10 px-6 sm:py-12 sm:px-8">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
             News
           </h2>

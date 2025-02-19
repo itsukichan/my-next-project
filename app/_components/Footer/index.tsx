@@ -9,7 +9,7 @@ export default function Footer() {
       <nav className="mb-4">
         <ul className="flex flex-wrap justify-center gap-x-10 gap-y-4 text-base">
           {footerItems.map((item) => (
-            <li key={item.label} className="w-full sm:w-auto">
+            <li key={item.label} className="w-auto">
               <Link
                 href={item.href}
                 target={item.isBlank ? '_blank' : undefined}
@@ -21,7 +21,7 @@ export default function Footer() {
           ))}
         </ul>
       </nav>
-      <p className="text-xs sm:text-sm">&copy; TechLog. ALL Rights Reserved 2025</p>
+      <p className="text-xs sm:text-sm">&copy; 2025 TechLog, Inc.</p>
     </footer>
   )
 }
