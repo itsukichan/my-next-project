@@ -6,7 +6,7 @@ export const navigationItems: {
 }[] = [
   {
     label: 'Profile',
-    href: 'https://resplendent-faloodeh-da4fb1.netlify.app',
+    href: 'https://techpanda.netlify.app/',
     isBlank: true,
   },
   {
@@ -19,7 +19,7 @@ export const navigationItems: {
   },
   {
     label: 'Source',
-    href: 'https://github.com/techlog-dev/techlog',
+    href: 'https://github.com/itsukichan/techlogwalk',
     isBlank: true,
   }
 ] as const;
