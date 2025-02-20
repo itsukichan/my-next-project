@@ -14,9 +14,13 @@ export default function Article({ data }: Props) {
       <h1 className="text-3xl md:text-4xl mb-6 text-left">{data.title}</h1>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 text-left">{data.description}</p>
       <div className="flex items-center gap-6 mb-16">
-        <Link href={`/blog/category/${data.category.id}`}>
-          <Category category={data.category} />
-        </Link>
+        <div className="flex flex-wrap gap-2">
+          {(data.category || []).map((category) => (
+            <Link key={category.id} href={`/blog/category/${category.id}`} className="hover:opacity-80">
+              <Category category={category} />
+            </Link>
+          ))}
+        </div>
         <Date date={data.publishedAt ?? data.createdAt} />
       </div>
       {data.thumbnail && (
