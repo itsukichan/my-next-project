@@ -13,14 +13,15 @@ export default function ViewTransitionProvider({
   useEffect(() => {
     if (!document.startViewTransition) return;
 
-    const handleNavigate = () => {
+    const handleNavigate = (e: Event) => {
+      if (!(e.target instanceof Node)) return;
+
       document.startViewTransition(async () => {
         document.documentElement.classList.add('view-transition')
         await Promise.resolve()
       })
     }
 
-    // 代替のナビゲーション検知方法を使用
     window.addEventListener('popstate', handleNavigate)
     window.addEventListener('pushState', handleNavigate)
     window.addEventListener('replaceState', handleNavigate)
