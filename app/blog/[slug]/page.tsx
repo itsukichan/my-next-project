@@ -3,7 +3,6 @@ import { notFound } from 'next/navigation';
 import { getBlogDetail } from '@/app/_libs/microcms';
 import Article from '@/app/_components/Article';
 import ButtonLink from '@/app/_components/ButtonLink';
-import Sheet from '@/app/_components/Sheet';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -41,13 +40,11 @@ export default async function Page({ params, searchParams }: Props) {
   }).catch(notFound);
 
   return (
-    <Sheet>
-      <div className="p-6 sm:p-8">
-        <Article data={data} />
-        <div className="mt-12">
-          <ButtonLink href="/blog">ブログ一覧へ</ButtonLink>
-        </div>
+    <div className="px-page sm:px-page-sm">
+      <Article data={data} />
+      <div className="mt-12">
+        <ButtonLink href="/blog">ブログ一覧へ</ButtonLink>
       </div>
-    </Sheet>
+    </div>
   );
 }
