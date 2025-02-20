@@ -23,14 +23,14 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   metadataBase: new URL('http://localhost:3000'),
   title: {
-    template: '%s | TechLog',
-    default: 'TechLog',
+    template: '%s | TechLog - テクログ -',
+    default: 'TechLog - テクログ -',
   },
-  description: 'TechLogは最新のテクノロジーに関する情報を発信するメディアです。',
+  description: '',
   openGraph: {
-    title: 'シンプルなコーポレートサイト',
+    title: 'TechLog - テクログ -',
     description:
-      '「Next.js＋ヘッドレスCMSではじめる！ かんたん・モダンWebサイト制作入門」で作成されるサイトです。',
+      '技術の道をテクテク進みながら、ログを積み重ねる。',
     images: ['/ogp.png'],
   },
   alternates: {
