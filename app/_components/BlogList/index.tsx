@@ -17,11 +17,15 @@ export default function BlogList({ blog }: Props) {
       {blog.map((article) => (
         <li key={article.id} className="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-none">
           <div className="block sm:flex sm:gap-6">
-            <Link href={`/blog/${article.id}`} className="block hover:opacity-80 transition-opacity">
+            <Link
+              href={`/blog/${article.id}`}
+              className="block hover:opacity-80 transition-opacity"
+              aria-label={`${article.title}の記事へ`}
+            >
               {article.thumbnail ? (
                 <Image
                   src={article.thumbnail.url}
-                  alt=""
+                  alt={article.title}
                   className="w-full h-48 sm:w-48 sm:h-32 object-cover rounded-lg mb-4 sm:mb-0"
                   width={article.thumbnail.width}
                   height={article.thumbnail.height}
@@ -30,7 +34,7 @@ export default function BlogList({ blog }: Props) {
                 <Image
                   className="w-full h-48 sm:w-48 sm:h-32 object-cover rounded-lg mb-4 sm:mb-0"
                   src="/no-image.png"
-                  alt="No Image"
+                  alt={`${article.title}のサムネイル画像`}
                   width={1200}
                   height={630}
                 />
