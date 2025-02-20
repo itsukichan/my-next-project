@@ -53,7 +53,14 @@ export default function Menu() {
           <div className="h-full flex flex-col px-6">
             <div className="pt-7">
               <Link href="/" className="flex items-center gap-2" onClick={() => setOpen(false)}>
-                <Image src={logo} alt="TechLog" width={32} height={32} priority className="dark:invert" />
+                <Image
+                  src={logo}
+                  alt=""
+                  width={32}
+                  height={32}
+                  className="dark:invert"
+                  loading="eager"
+                />
                 <span className="font-semibold text-md text-gray-900 dark:text-gray-100">TechLog</span>
               </Link>
             </div>

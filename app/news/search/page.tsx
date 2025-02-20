@@ -2,6 +2,7 @@ import { getNewsList } from '@/app/_libs/microcms';
 import { NEWS_LIST_LIMIT } from '@/app/_constants';
 import NewsList from '@/app/_components/NewsList';
 import SearchField from '@/app/_components/SearchField';
+import Sheet from '@/app/_components/Sheet';
 
 type Props = {
   searchParams: {
@@ -16,13 +17,13 @@ export default async function Page({ searchParams }: Props) {
   });
 
   return (
-    <div className="container max-w-2xl mx-auto">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl py-10 px-4 md:py-20 md:px-8">
+    <Sheet>
+      <div className="p-6 sm:p-8">
         <div className="mb-12">
           <SearchField />
         </div>
         <NewsList news={news} />
       </div>
-    </div>
-  )
+    </Sheet>
+  );
 }

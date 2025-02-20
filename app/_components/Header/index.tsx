@@ -10,8 +10,15 @@ export default function Header() {
       <div className="mx-auto flex max-w-2xl items-center justify-between p-6 sm:px-8">
         <h1 className="font-semibold text-md">
           <Link href="/" className="flex items-center gap-2 text-gray-900 dark:text-gray-100">
-            <Image src={logo} alt="TechLog" width={32} height={32} priority className="dark:invert transition-all duration-500 hover:scale-110 hover:rotate-6" />
-            TechLog
+            <Image
+              src={logo}
+              alt=""
+              width={32}
+              height={32}
+              className="dark:invert transition-all duration-500 hover:scale-110 hover:rotate-6"
+              loading="eager"
+            />
+            <span>TechLog</span>
           </Link>
         </h1>
         <div className="flex items-center gap-4">

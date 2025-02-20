@@ -2,6 +2,7 @@ import { getNewsList } from '@/app/_libs/microcms';
 import NewsList from '@/app/_components/NewsList';
 import Pagination from '@/app/_components/Pagination';
 import SearchField from '@/app/_components/SearchField';
+import Sheet from '@/app/_components/Sheet';
 import { NEWS_LIST_LIMIT } from '@/app/_constants';
 
 export default async function Page() {
@@ -10,8 +11,8 @@ export default async function Page() {
   });
 
   return (
-    <div className="container max-w-2xl mx-auto">
-      <div className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl py-10 px-4 md:py-20 md:px-8">
+    <Sheet>
+      <div className="p-6 sm:p-8">
         <div className="mb-12">
           <SearchField />
         </div>
@@ -20,6 +21,6 @@ export default async function Page() {
           <Pagination totalCount={totalCount} />
         </div>
       </div>
-    </div>
+    </Sheet>
   );
 }

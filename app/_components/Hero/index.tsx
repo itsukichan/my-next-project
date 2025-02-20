@@ -8,7 +8,7 @@ type Props = {
 export default function Hero({ title, sub }: Props) {
   return (
     <section className="relative h-[300px] sm:h-[400px] flex items-center justify-center bg-gradient-to-b from-gray-900/60 to-gray-900/40 dark:from-black/70 dark:to-black/50 text-white overflow-hidden">
-      <div className="relative z-10 px-4 pt-36 pb-16 sm:pb-24 text-center">
+      <div className="relative z-10 px-4 py-16 sm:py-24 text-center">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-lg">
           {title}
         </h1>
