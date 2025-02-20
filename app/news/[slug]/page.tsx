@@ -6,12 +6,8 @@ import ButtonLink from '@/app/_components/ButtonLink';
 import Sheet from '@/app/_components/Sheet';
 
 type Props = {
-  params: {
-    slug: string;
-  };
-  searchParams: {
-    dk?: string;
-  };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ dk?: string }>;
 };
 
 export async function generateMetadata({

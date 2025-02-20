@@ -11,7 +11,7 @@ export default function ViewTransitionProvider({
   const pathname = usePathname()
 
   useEffect(() => {
-    if (!document.startViewTransition) return
+    if (!document.startViewTransition) return;
 
     const handleNavigate = () => {
       document.startViewTransition(async () => {
@@ -20,10 +20,15 @@ export default function ViewTransitionProvider({
       })
     }
 
-    window.navigation.addEventListener('navigate', handleNavigate)
+    // 代替のナビゲーション検知方法を使用
+    window.addEventListener('popstate', handleNavigate)
+    window.addEventListener('pushState', handleNavigate)
+    window.addEventListener('replaceState', handleNavigate)
 
     return () => {
-      window.navigation.removeEventListener('navigate', handleNavigate)
+      window.removeEventListener('popstate', handleNavigate)
+      window.removeEventListener('pushState', handleNavigate)
+      window.removeEventListener('replaceState', handleNavigate)
       document.documentElement.classList.remove('view-transition')
     }
   }, [pathname])

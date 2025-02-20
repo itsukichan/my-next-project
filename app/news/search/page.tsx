@@ -5,15 +5,17 @@ import SearchField from '@/app/_components/SearchField';
 import Sheet from '@/app/_components/Sheet';
 
 type Props = {
-  searchParams: {
+  searchParams: Promise<{
     q?: string;
-  };
+  }>;
 };
 
 export default async function Page({ searchParams }: Props) {
+  const { q } = await searchParams;
+
   const { contents: news } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
-    q: searchParams.q
+    q: q
   });
 
   return (

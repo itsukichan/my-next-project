@@ -6,21 +6,22 @@ import Sheet from '@/app/_components/Sheet';
 import { NEWS_LIST_LIMIT } from '@/app/_constants';
 
 type Props = {
-  params: {
+  params: Promise<{
     current: string;
-  };
+  }>;
 };
 
 export default async function Page({ params }: Props) {
-  const current = parseInt(params.current as string, 10);
+  const { current } = await params;
+  const currentPage = parseInt(current, 10);
 
-  if (Number.isNaN(current) || current < 1) {
+  if (Number.isNaN(currentPage) || currentPage < 1) {
     notFound();
   }
 
   const { contents: news, totalCount } = await getNewsList({
     limit: NEWS_LIST_LIMIT,
-    offset: NEWS_LIST_LIMIT * (current - 1),
+    offset: NEWS_LIST_LIMIT * (currentPage - 1),
   });
 
   if (news.length === 0) {
@@ -32,7 +33,7 @@ export default async function Page({ params }: Props) {
       <div className="p-6 sm:p-8">
         <NewsList news={news} />
         <div className="mt-12">
-          <Pagination totalCount={totalCount} current={current} />
+          <Pagination totalCount={totalCount} current={currentPage} />
         </div>
       </div>
     </Sheet>
