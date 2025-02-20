@@ -21,20 +21,20 @@ export default function ThemeToggleButton() {
       type="button"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-      className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors duration-500"
+      className="relative inline-flex h-8 w-14 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-all duration-500 ease-in-out"
     >
       <span
         className={`${theme === 'dark' ? 'translate-x-7' : 'translate-x-1'
-          } inline-block h-6 w-6 transform rounded-full bg-white transition-transform duration-500`}
+          } inline-block h-6 w-6 transform rounded-full bg-white transition-all duration-500 ease-in-out`}
       >
-        <span className="relative flex h-full w-full items-center justify-center">
+        <span className="relative flex h-full w-full items-center justify-center transition-all duration-500 ease-in-out">
           {theme === 'dark' ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              className="h-4 w-4 text-gray-700"
+              className="h-4 w-4 text-gray-700 transition-opacity duration-500 ease-in-out"
             >
               <path
                 strokeLinecap="round"
@@ -49,7 +49,7 @@ export default function ThemeToggleButton() {
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              className="h-4 w-4 text-gray-400"
+              className="h-4 w-4 text-gray-400 transition-opacity duration-500 ease-in-out"
             >
               <circle cx="12" cy="12" r="5" />
               <path d="M12 1v2" />

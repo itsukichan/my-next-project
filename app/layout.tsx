@@ -5,6 +5,7 @@ import ViewTransitionProvider from '@/app/_components/ViewTransitionProvider'
 import Header from './_components/Header';
 import Footer from './_components/Footer';
 import { Inter, Noto_Sans_JP } from "next/font/google"
+import { Providers } from './providers';
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,19 +48,20 @@ export default function RootLayout({
       <head />
       <body className={`${inter.variable} ${notoSansJP.variable} min-h-screen antialiased font-sans
         bg-white dark:bg-gray-900
-        text-gray-900 dark:text-gray-100 pt-[72px]`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <ViewTransitionProvider>
-            <Header />
-            <main className="flex-1">{children}</main>
-            <Footer />
-          </ViewTransitionProvider>
-        </ThemeProvider>
+        text-gray-900 dark:text-gray-100 pt-[72px] transition-colors duration-100`}>
+        <Providers>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+          >
+            <ViewTransitionProvider>
+              <Header />
+              <main className="flex-1">{children}</main>
+              <Footer />
+            </ViewTransitionProvider>
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   );
