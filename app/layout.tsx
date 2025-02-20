@@ -21,20 +21,19 @@ const notoSansJP = Noto_Sans_JP({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://techlogwalk.vercel.app'),
   title: {
     template: '%s | TechLog - テクログ -',
     default: 'TechLog - テクログ -',
   },
-  description: '',
+  description: '技術の道をテクテク進みながら、ログを積み重ねる。',
   openGraph: {
     title: 'TechLog - テクログ -',
-    description:
-      '技術の道をテクテク進みながら、ログを積み重ねる。',
+    description: '技術の道をテクテク進みながら、ログを積み重ねる。',
     images: ['/ogp.png'],
   },
   alternates: {
-    canonical: 'http://localhost:3000',
+    canonical: 'https://techlogwalk.vercel.app',
   },
 };
 
