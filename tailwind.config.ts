@@ -125,6 +125,103 @@ module.exports = {
       transitionDuration: {
         'common': '200ms',
       },
+
+      typography: {
+        DEFAULT: {
+          css: {
+            'code::before': {
+              content: '""'
+            },
+            'code::after': {
+              content: '""'
+            },
+            code: {
+              backgroundColor: 'rgb(241 245 249)',
+              padding: '0.2em 0.4em',
+              borderRadius: '0.25rem',
+              fontSize: '0.875em',
+              fontWeight: '400',
+            },
+            'pre code': {
+              backgroundColor: 'transparent',
+              padding: '0',
+              borderRadius: '0',
+              fontSize: 'inherit',
+            },
+            pre: {
+              backgroundColor: 'rgb(241 245 249)',
+              padding: '1rem',
+              borderRadius: '0.5rem',
+              overflow: 'auto',
+              fontSize: '0.875em',
+              lineHeight: '1.7142857',
+              margin: '1.5em 0',
+            },
+            '.dark code': {
+              backgroundColor: 'rgb(31 41 55)',
+              color: 'rgb(226 232 240)',
+            },
+            '.dark pre': {
+              backgroundColor: 'rgb(31 41 55)',
+              color: 'rgb(226 232 240)',
+            },
+            // リンクスタイル
+            a: {
+              color: 'rgb(37 99 235)',
+              textDecoration: 'none',
+              '&:hover': {
+                textDecoration: 'underline',
+              },
+            },
+            // 見出しスタイル
+            h1: {
+              borderBottom: '1px solid rgb(229 231 235)',
+              paddingBottom: '0.5rem',
+              marginBottom: '1.5rem',
+            },
+            h2: {
+              borderBottom: '1px solid rgb(229 231 235)',
+              paddingBottom: '0.5rem',
+              marginTop: '2rem',
+              marginBottom: '1rem',
+            },
+            // リストスタイル
+            'ul > li': {
+              paddingLeft: '0.375rem',
+            },
+            // 引用スタイル
+            blockquote: {
+              borderLeftWidth: '4px',
+              borderLeftColor: 'rgb(209 213 219)',
+              fontStyle: 'normal',
+              padding: '0.5rem 0 0.5rem 1rem',
+              color: 'rgb(107 114 128)',
+            },
+            // テーブルスタイル
+            table: {
+              fontSize: '0.875em',
+            },
+            'thead th': {
+              backgroundColor: 'rgb(243 244 246)',
+              padding: '0.75rem',
+            },
+            'tbody td': {
+              padding: '0.75rem',
+            },
+            // ダークモード対応
+            '.dark blockquote': {
+              borderLeftColor: 'rgb(75 85 99)',
+              color: 'rgb(156 163 175)',
+            },
+            '.dark thead th': {
+              backgroundColor: 'rgb(31 41 55)',
+            },
+            '.dark h1, .dark h2': {
+              borderBottomColor: 'rgb(55 65 81)',
+            },
+          },
+        },
+      },
     },
     backgroundImage: {
       // "tutorial-bg": "url('/public/bg-graphic.jpg')",

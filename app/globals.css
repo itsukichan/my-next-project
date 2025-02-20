@@ -61,3 +61,101 @@ main {
     opacity: 1;
   }
 }
+
+/* コードブロックの基本スタイル */
+pre {
+  position: relative !important;
+  border: 1px solid rgb(226 232 240) !important;
+  border-radius: 0.5rem !important;
+  margin: 1.5rem 0 !important;
+  background: rgb(241 245 249) !important;
+}
+
+/* ライトモードのコードブロックスタイル */
+pre code {
+  display: block !important;
+  background: rgb(241 245 249) !important;
+  color: rgb(31 41 55) !important;
+  padding: 1rem !important;
+}
+
+pre[data-filename] code {
+  padding-top: 3rem !important;
+}
+
+/* ファイル名表示 */
+pre[data-filename]::before {
+  content: attr(data-filename);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 1rem;
+  background: rgb(248 250 252);
+  color: rgb(51 65 85);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.75rem;
+  border-bottom: 1px solid rgb(226 232 240);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+/* ダークモードのスタイル */
+.dark pre {
+  border-color: rgb(51 65 85) !important;
+  background: rgb(31 41 55) !important;
+}
+
+.dark pre code {
+  background: rgb(31 41 55) !important;
+  color: rgb(226 232 240) !important;
+}
+
+.dark pre[data-filename]::before {
+  background: rgb(15 23 42);
+  color: rgb(148 163 184);
+  border-bottom-color: rgb(51 65 85);
+}
+
+/* シンタックスハイライトの色調整 */
+.hljs-keyword,
+.hljs-selector-tag {
+  color: rgb(147 51 234) !important; /* より濃い紫 */
+}
+
+.hljs-string,
+.hljs-attr {
+  color: rgb(21 128 61) !important; /* より濃い緑 */
+}
+
+.hljs-number,
+.hljs-literal {
+  color: rgb(154 52 18) !important; /* より濃いオレンジ */
+}
+
+.hljs-title,
+.hljs-class,
+.hljs-function {
+  color: rgb(30 64 175) !important; /* より濃い青 */
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: rgb(51 65 85) !important; /* より濃いグレー */
+}
+
+/* インラインコードのスタイル */
+:not(pre) > code {
+  background: rgb(226 232 240) !important;
+  color: rgb(15 23 42) !important;
+  padding: 0.25em 0.5em !important;
+  border-radius: 0.25rem !important;
+  font-size: 0.875em !important;
+  border: 1px solid rgb(203 213 225) !important;
+}
+
+.dark :not(pre) > code {
+  background: rgb(51 65 85) !important;
+  color: rgb(241 245 249) !important;
+  border-color: rgb(71 85 105) !important;
+}
