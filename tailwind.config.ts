@@ -51,6 +51,10 @@ module.exports = {
           light: "#66BB6A",
           dark: "#1B5E20",
         },
+        // 共通の背景色
+        'default': 'rgb(255 255 255)', // white
+        'default-dark': 'rgb(17 24 39)', // gray-900
+        'muted': 'rgb(249 250 251)',   // gray-50
       },
       backgroundColor: {
         light: "#FFFFFF",
@@ -108,14 +112,6 @@ module.exports = {
         'default-dark': 'rgb(243 244 246)', // gray-100
         'muted': 'rgb(75 85 99)',   // gray-600
         'muted-dark': 'rgb(156 163 175)', // gray-400
-      },
-
-      // 共通の背景色
-      backgroundColor: {
-        'default': 'rgb(255 255 255)', // white
-        'default-dark': 'rgb(17 24 39)', // gray-900
-        'muted': 'rgb(249 250 251)',   // gray-50
-        'muted-dark': 'rgb(31 41 55)', // gray-800
       },
 
       // 共通のトランジション
