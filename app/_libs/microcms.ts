@@ -9,7 +9,7 @@ export type Category = {
   name: string;
 } & MicroCMSListContent;
 
-export type News = {
+export type Blog = {
   title: string;
   description: string;
   content: string;
@@ -30,20 +30,20 @@ const client = createClient({
   apiKey: process.env.MICROCMS_API_KEY,
 });
 
-export const getNewsList = async (queries?: MicroCMSQueries) => {
-  const listData = await client.getList<News>({
-    endpoint: 'news',
+export const getBlogList = async (queries?: MicroCMSQueries) => {
+  const listData = await client.getList<Blog>({
+    endpoint: 'blog',
     queries,
   });
   return listData;
 };
 
-export const getNewsDetail = async (
+export const getBlogDetail = async (
   contentId: string,
   queries?: MicroCMSQueries
 ) => {
-  const detailData = await client.getListDetail<News>({
-    endpoint: 'news',
+  const detailData = await client.getListDetail<Blog>({
+    endpoint: 'blog',
     contentId,
     queries,
     customRequestInit: {
@@ -69,9 +69,9 @@ export const getCategoryDetail = async (
   return detailData;
 }
 
-export const getAllNewsList = async () => {
-  const listData = await client.getAllContents<News>({
-    endpoint: 'news',
+export const getAllBlogList = async () => {
+  const listData = await client.getAllContents<Blog>({
+    endpoint: 'blog',
   });
 
   return listData;

@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
-import { getCategoryDetail, getNewsList } from '@/app/_libs/microcms';
-import NewsList from '@/app/_components/NewsList';
+import { getCategoryDetail, getBlogList } from '@/app/_libs/microcms';
+import BlogList from '@/app/_components/BlogList';
 import Pagination from '@/app/_components/Pagination';
 import Sheet from '@/app/_components/Sheet';
-import { NEWS_LIST_LIMIT } from '@/app/_constants';
+import { BLOG_LIST_LIMIT } from '@/app/_constants';
 
 type Props = {
   params: Promise<{
@@ -22,25 +22,25 @@ export default async function Page({ params }: Props) {
 
   const category = await getCategoryDetail(id).catch(notFound);
 
-  const { contents: news, totalCount } = await getNewsList({
-    limit: NEWS_LIST_LIMIT,
+  const { contents: blog, totalCount } = await getBlogList({
+    limit: BLOG_LIST_LIMIT,
     filters: `category[equals]${category.id}`,
-    offset: NEWS_LIST_LIMIT * (currentPage - 1),
+    offset: BLOG_LIST_LIMIT * (currentPage - 1),
   });
 
-  if (news.length === 0) {
+  if (blog.length === 0) {
     notFound();
   }
 
   return (
     <Sheet>
       <div className="p-6 sm:p-8">
-        <NewsList news={news} />
+        <BlogList blog={blog} />
         <div className="mt-12">
           <Pagination
             totalCount={totalCount}
             current={currentPage}
-            basePath={`/news/category/${category.id}`}
+            basePath={`/blog/category/${category.id}`}
           />
         </div>
       </div>

@@ -10,8 +10,8 @@ export const navigationItems: {
     isBlank: true,
   },
   {
-    label: 'News',
-    href: '/news'
+    label: 'Blog',
+    href: '/blog'
   },
   {
     label: 'Contact',

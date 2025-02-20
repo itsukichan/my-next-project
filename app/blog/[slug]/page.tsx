@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getNewsDetail } from '@/app/_libs/microcms';
+import { getBlogDetail } from '@/app/_libs/microcms';
 import Article from '@/app/_components/Article';
 import ButtonLink from '@/app/_components/ButtonLink';
 import Sheet from '@/app/_components/Sheet';
@@ -17,7 +17,7 @@ export async function generateMetadata({
   const { slug } = await params;
   const { dk: draftKey } = await searchParams;
 
-  const data = await getNewsDetail(slug, {
+  const data = await getBlogDetail(slug, {
     draftKey: draftKey,
   });
 
@@ -36,7 +36,7 @@ export default async function Page({ params, searchParams }: Props) {
   const { slug } = await params;
   const { dk: draftKey } = await searchParams;
 
-  const data = await getNewsDetail(slug, {
+  const data = await getBlogDetail(slug, {
     draftKey: draftKey,
   }).catch(notFound);
 
@@ -45,7 +45,7 @@ export default async function Page({ params, searchParams }: Props) {
       <div className="p-6 sm:p-8">
         <Article data={data} />
         <div className="mt-12">
-          <ButtonLink href="/news">ニュース一覧へ</ButtonLink>
+          <ButtonLink href="/blog">ブログ一覧へ</ButtonLink>
         </div>
       </div>
     </Sheet>

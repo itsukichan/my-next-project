@@ -1,6 +1,6 @@
-import { getNewsList } from '@/app/_libs/microcms';
-import { NEWS_LIST_LIMIT } from '@/app/_constants';
-import NewsList from '@/app/_components/NewsList';
+import { getBlogList } from '@/app/_libs/microcms';
+import { BLOG_LIST_LIMIT } from '@/app/_constants';
+import BlogList from '@/app/_components/BlogList';
 import SearchField from '@/app/_components/SearchField';
 import Sheet from '@/app/_components/Sheet';
 
@@ -13,8 +13,8 @@ type Props = {
 export default async function Page({ searchParams }: Props) {
   const { q } = await searchParams;
 
-  const { contents: news } = await getNewsList({
-    limit: NEWS_LIST_LIMIT,
+  const { contents: blog } = await getBlogList({
+    limit: BLOG_LIST_LIMIT,
     q: q
   });
 
@@ -24,7 +24,7 @@ export default async function Page({ searchParams }: Props) {
         <div className="mb-12">
           <SearchField />
         </div>
-        <NewsList news={news} />
+        <BlogList blog={blog} />
       </div>
     </Sheet>
   );

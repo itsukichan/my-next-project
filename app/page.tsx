@@ -1,14 +1,14 @@
 import Image from "next/image";
-import { getNewsList } from '@/app/_libs/microcms';
-import { TOP_NEWS_LIST_LIMIT } from '@/app/_constants';
+import { getBlogList } from '@/app/_libs/microcms';
+import { TOP_BLOG_LIST_LIMIT } from '@/app/_constants';
 import ButtonLink from '@/app/_components/ButtonLink'
-import NewsList from '@/app/_components/NewsList';
+import BlogList from '@/app/_components/BlogList';
 
 export const revalidate = 60;
 
 export default async function Home() {
-  const data = await getNewsList({
-    limit: TOP_NEWS_LIST_LIMIT,
+  const data = await getBlogList({
+    limit: TOP_BLOG_LIST_LIMIT,
   });
 
   return (
@@ -53,11 +53,11 @@ export default async function Home() {
       <section className="relative mx-auto max-w-2xl px-4">
         <div className="rounded-2xl bg-white/90 backdrop-blur-sm shadow-xl transition-all duration-300 hover:shadow-2xl dark:bg-gray-800/90 -mt-20 mx-auto py-10 px-6 sm:py-12 sm:px-8">
           <h2 className="mb-10 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
-            News
+            Blog
           </h2>
-          <NewsList news={data.contents} />
+          <BlogList blog={data.contents} />
           <div className="mt-10 text-center">
-            <ButtonLink href="/news">もっとみる</ButtonLink>
+            <ButtonLink href="/blog">もっとみる</ButtonLink>
           </div>
         </div>
       </section>

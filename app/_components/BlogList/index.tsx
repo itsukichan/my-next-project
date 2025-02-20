@@ -2,21 +2,21 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Category from '../Category';
 import Date from '../Date';
-import { News } from '@/app/_libs/microcms';
+import { Blog } from '@/app/_libs/microcms';
 
 type Props = {
-  news: News[];
+  blog: Blog[];
 };
 
-export default function NewsList({ news }: Props) {
-  if (news.length === 0) {
+export default function BlogList({ blog }: Props) {
+  if (blog.length === 0) {
     return <p>記事がありません。</p>;
   }
   return (
     <ul className="space-y-8">
-      {news.map((article) => (
+      {blog.map((article) => (
         <li key={article.id} className="border-b border-gray-200 dark:border-gray-800 pb-8 last:border-none">
-          <Link href={`/news/${article.id}`} className="block hover:opacity-80 transition-opacity sm:flex sm:gap-6">
+          <Link href={`/blog/${article.id}`} className="block hover:opacity-80 transition-opacity sm:flex sm:gap-6">
             {article.thumbnail ? (
               <Image
                 src={article.thumbnail.url}

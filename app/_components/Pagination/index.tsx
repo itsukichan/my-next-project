@@ -1,4 +1,4 @@
-import { NEWS_LIST_LIMIT } from '@/app/_constants';
+import { BLOG_LIST_LIMIT } from '@/app/_constants';
 import Link from 'next/link';
 
 type Props = {
@@ -10,10 +10,10 @@ type Props = {
 export default function Pagination({
   totalCount,
   current = 1,
-  basePath = '/news',
+  basePath = '/blog',
 }: Props) {
   const pages = Array.from(
-    { length: Math.ceil(totalCount / NEWS_LIST_LIMIT) },
+    { length: Math.ceil(totalCount / BLOG_LIST_LIMIT) },
     (_, i) => i + 1
   );
 
@@ -24,7 +24,7 @@ export default function Pagination({
           <li key={p}>
             {current !== p ? (
               <Link
-                href={`/news/p/${p}`}
+                href={`/blog/p/${p}`}
                 className="flex items-center justify-center w-10 h-10 rounded-lg
                          text-gray-700 hover:bg-gray-100 dark:text-gray-300
                          dark:hover:bg-gray-800 transition-colors"

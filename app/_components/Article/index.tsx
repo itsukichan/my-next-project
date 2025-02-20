@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import type { News } from '@/app/_libs/microcms'
+import type { Blog } from '@/app/_libs/microcms'
 import Date from '@/app/_components/Date'
 import Category from '@/app/_components/Category'
 
 type Props = {
-  data: News
+  data: Blog
 }
 
 export default function Article({ data }: Props) {
@@ -14,7 +14,7 @@ export default function Article({ data }: Props) {
       <h1 className="text-3xl md:text-4xl mb-6 text-left">{data.title}</h1>
       <p className="text-sm text-gray-600 dark:text-gray-400 mb-6 text-left">{data.description}</p>
       <div className="flex items-center gap-6 mb-16">
-        <Link href={`/news/category/${data.category.id}`}>
+        <Link href={`/blog/category/${data.category.id}`}>
           <Category category={data.category} />
         </Link>
         <Date date={data.publishedAt ?? data.createdAt} />
