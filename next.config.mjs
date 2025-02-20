@@ -8,6 +8,7 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: ["next-themes"],
 };
 
 export default nextConfig;

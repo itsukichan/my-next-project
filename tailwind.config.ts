@@ -1,9 +1,15 @@
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
   darkMode: "class",
-  content: ["./app/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}", // Note the addition of the `app` directory.
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    // Or if using `src` directory:
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     screens: {
       sm: "640px",
@@ -64,19 +70,17 @@ module.exports = {
           "50%": { opacity: 0.5 },
         },
       },
-    },
-    fontFamily: {
-      sans: [
-        "var(--font-noto-sans-jp)",
-        "var(--font-inter)",
-        ...defaultTheme.fontFamily.sans,
-      ],
+      fontFamily: {
+        sans: [
+          "var(--font-noto-sans-jp)",
+          "var(--font-inter)",
+          ...defaultTheme.fontFamily.sans,
+        ],
+      },
     },
     backgroundImage: {
       // "tutorial-bg": "url('/public/bg-graphic.jpg')",
     },
   },
-  plugins: [
-    require("@tailwindcss/typography"), // proseクラスのために必要
-  ],
-};
+  plugins: [require("@tailwindcss/typography")],
+} satisfies Config

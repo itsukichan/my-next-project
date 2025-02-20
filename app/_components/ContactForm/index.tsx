@@ -1,21 +1,53 @@
 'use client';
 
-import { createContactData } from '@/app/_actions/contact';
-import { useFormState } from 'react-dom';
+// import { createContactData } from '@/app/_actions/contact'; // 削除：ローカルで定義するため
+import { useActionState } from 'react';
 // import { sendGAEvent } from '@next/third-parties/google';
 
-const initialState = {
-  status: '',
-  message: '',
+type StateType = {
+  message: string;
+  error: boolean;
+  status: 'success' | 'error' | '';  // undefinedを許可しない
 };
 
+const initialState: StateType = {
+  message: '',
+  error: false,
+  status: ''  // 空文字列を初期値として使用
+};
+
+async function createContactData(prevState: StateType, formData: FormData): Promise<StateType> {
+  try {
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+    };
+
+    // ここでデータを送信する処理を実装
+    // 例: APIエンドポイントにPOSTリクエストを送る
+
+    return {
+      message: '送信が完了しました',
+      error: false,
+      status: 'success'
+    };
+  } catch (error) {
+    return {
+      message: 'エラーが発生しました',
+      error: true,
+      status: 'error'
+    };
+  }
+}
+
 export default function ContactForm() {
-  const [state, formAction] = useFormState(createContactData, initialState);
+  const [state, formAction] = useActionState(createContactData, initialState);
   console.log(state);
   // const handleSubmit = () => {
   //   sendGAEvent({ event: 'contact', value: 'submit' });
   // };
-  if (state.status === 'success') {
+  if (state?.status === 'success') {
     return (
       <p className="bg-gray-100 dark:bg-gray-800 text-center p-10 rounded-lg">
         お問い合わせいただき、ありがとうございます。
@@ -81,7 +113,7 @@ export default function ContactForm() {
         />
       </div>
       <div className="text-center mt-10">
-        {state.status === 'error' && (
+        {state?.status === 'error' && (
           <p className="text-red-500 text-sm mb-2">{state.message}</p>
         )}
         <input
