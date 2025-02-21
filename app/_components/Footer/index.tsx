@@ -21,7 +21,7 @@ export default function Footer() {
           ))}
         </ul>
       </nav>
-      <p className="text-xs sm:text-sm">&copy; 2025 TechLog, Inc.</p>
+      <p className="text-xs sm:text-sm">&copy; 2025 TechLog. All Rights Reserved.</p>
     </footer>
   )
 }
