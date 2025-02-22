@@ -83,31 +83,33 @@ export default function ContactForm() {
               required
             />
           </div>
-          <div>
-            <label className="text-sm font-medium mb-2 block" htmlFor="company">会社名</label>
-            <input
-              className="w-full px-4 py-2 rounded-lg
-                       border border-default dark:border-default-dark
-                       bg-white dark:bg-gray-800
-                       focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="text"
-              id="company"
-              name="company"
-            />
-          </div>
-          <div>
-            <label className="text-sm font-medium mb-2 block" htmlFor="email">メールアドレス</label>
-            <input
-              className="w-full px-4 py-2 rounded-lg
-                       border border-default dark:border-default-dark
-                       bg-white dark:bg-gray-800
-                       focus:outline-none focus:ring-2 focus:ring-blue-500"
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
-          </div>
+        </div>
+
+        <div>
+          <label className="text-sm font-medium mb-2 block" htmlFor="company">会社名</label>
+          <input
+            className="w-full px-4 py-2 rounded-lg
+                     border border-default dark:border-default-dark
+                     bg-white dark:bg-gray-800
+                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+            type="text"
+            id="company"
+            name="company"
+          />
+        </div>
+
+        <div>
+          <label className="text-sm font-medium mb-2 block" htmlFor="email">メールアドレス</label>
+          <input
+            className="w-full px-4 py-2 rounded-lg
+                     border border-default dark:border-default-dark
+                     bg-white dark:bg-gray-800
+                     focus:outline-none focus:ring-2 focus:ring-blue-500"
+            type="email"
+            id="email"
+            name="email"
+            required
+          />
         </div>
 
         <div className="mb-6">

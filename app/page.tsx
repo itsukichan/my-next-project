@@ -51,7 +51,7 @@ export default async function Home() {
           sizes="100vw"
         />
       </section>
-      <div className="relative mx-auto max-w-2xl -mt-20">
+      <div className="relative mx-auto max-w-2xl -mt-20 px-6 md:px-0">
         <Sheet>
           <div className=" mx-auto py-10 px-6 sm:py-12 sm:px-8">
             <h2 className="mb-10 text-center text-3xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl">
