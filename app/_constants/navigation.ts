@@ -5,21 +5,13 @@ export const navigationItems: {
   showInFooter?: boolean;
 }[] = [
   {
-    label: 'Profile',
-    href: 'https://techpanda.netlify.app/',
-    isBlank: true,
-  },
-  {
     label: 'Blog',
-    href: '/blog'
+    href: '/blog',
+    showInFooter: false,
   },
   {
     label: 'Contact',
-    href: '/contact'
+    href: '/contact',
+    showInFooter: false,
   },
-  {
-    label: 'Source',
-    href: 'https://github.com/itsukichan/techlogwalk',
-    isBlank: true,
-  }
 ] as const;

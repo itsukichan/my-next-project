@@ -18,8 +18,8 @@ function SearchFieldComponent() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-xl mx-auto">
-      <label className="relative flex items-center">
+    <form onSubmit={handleSubmit} className="w-full">
+      <label className="relative flex items-center w-full">
         <Image
           src="/search.svg"
           alt="検索"
@@ -33,8 +33,8 @@ function SearchFieldComponent() {
           name="q"
           defaultValue={searchParams.get('q') || undefined}
           placeholder="キーワードを入力"
-          className="w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-700
-                     rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500
+          className="w-full pl-10 pr-4 py-2 border border-default dark:border-default-dark
+                     rounded-lg focus:outline-none focus:ring-2 focus:ring-primary
                      dark:bg-gray-800 dark:text-gray-100"
         />
       </label>

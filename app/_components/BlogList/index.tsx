@@ -27,33 +27,35 @@ export default function BlogList({ blog }: Props) {
         >
           <Link
             href={`/blog/${article.id}`}
-            className="block sm:flex gap-6"
+            className="block sm:flex gap-8 hover:bg-gray-50 dark:hover:bg-gray-800/50 p-4 -mx-4 rounded-lg transition-colors"
           >
-            <div className="relative aspect-video sm:w-48 mb-4 sm:mb-0">
+            <div className="relative aspect-video sm:w-56 mb-4 sm:mb-0 overflow-hidden rounded-lg">
               {article.thumbnail ? (
                 <Image
                   src={article.thumbnail.url}
                   alt=""
-                  className="rounded-lg object-cover transition-transform group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                   fill
-                  sizes="(max-width: 640px) 100vw, 192px"
+                  sizes="(max-width: 640px) 100vw, 224px"
+                  priority
                 />
               ) : (
                 <Image
                   src="/no-image.png"
                   alt=""
-                  className="rounded-lg object-cover transition-transform group-hover:scale-105"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
                   fill
-                  sizes="(max-width: 640px) 100vw, 192px"
+                  sizes="(max-width: 640px) 100vw, 224px"
+                  priority
                 />
               )}
             </div>
 
-            <div className="flex-1">
-              <h2 className="text-xl sm:text-2xl font-bold mb-3 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
+            <div className="flex-1 flex flex-col">
+              <h2 className="text-lg sm:text-xl font-bold mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                 {article.title}
               </h2>
-              <div className="flex flex-wrap items-center gap-4">
+              <div className="mt-auto flex flex-col gap-2">
                 <div className="flex flex-wrap gap-2">
                   {(article.category || []).map((category) => (
                     <Category key={category.id} category={category} />

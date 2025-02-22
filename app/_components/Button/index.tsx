@@ -13,10 +13,8 @@ export default function Button({
   className = '',
   onClick
 }: Props) {
-  const baseStyles = 'inline-flex items-center justify-center font-medium rounded-lg transition-all duration-200';
-
   const variantStyles = {
-    primary: 'bg-blue-600 text-white hover:bg-blue-700',
+    primary: 'bg-primary text-white hover:bg-primary-dark',
     secondary: 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
   };
 
@@ -29,7 +27,7 @@ export default function Button({
   return (
     <button
       onClick={onClick}
-      className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
+      className={`button-base ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
     >
       {children}
     </button>

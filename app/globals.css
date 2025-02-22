@@ -2,6 +2,50 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* カラーパレット */
+    --color-primary: 37 99 235; /* blue-600 */
+    --color-primary-dark: 29 78 216; /* blue-700 */
+
+    /* スペーシング */
+    --spacing-page: 1.5rem; /* p-6 */
+    --spacing-page-sm: 2rem; /* p-8 */
+    --spacing-section: 3rem; /* my-12 */
+    --spacing-section-sm: 4rem; /* my-16 */
+  }
+
+  /* ダークモード時の背景色と文字色 */
+  .dark {
+    --bg-primary: 17 24 39; /* gray-900 */
+    --text-primary: 243 244 246; /* gray-100 */
+  }
+}
+
+/* 共通のコンポーネントスタイル */
+@layer components {
+  .input-base {
+    @apply w-full px-4 py-2 rounded-lg
+           border border-gray-300 dark:border-gray-700
+           bg-white dark:bg-gray-800
+           focus:outline-none focus:ring-2 focus:ring-blue-500
+           transition-colors duration-200;
+  }
+
+  .button-base {
+    @apply inline-flex items-center justify-center
+           font-medium rounded-lg
+           transition-all duration-200;
+  }
+
+  .card-base {
+    @apply bg-white dark:bg-gray-800
+           shadow-lg rounded-lg
+           border border-gray-100 dark:border-gray-700
+           transition-colors duration-200;
+  }
+}
+
 /* View Transitions API */
 ::view-transition-old(root),
 ::view-transition-new(root) {

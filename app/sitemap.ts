@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllCategoryList, getAllBlogList } from './_libs/microcms';
 
-const buildUrl = (path?: string) => `http://localhost:3000${path ?? ''}`;
+const buildUrl = (path?: string) => `https://techlogwalk.com${path ?? ''}`;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const blogContents = await getAllBlogList();

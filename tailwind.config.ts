@@ -42,9 +42,9 @@ module.exports = {
         },
         // ブランドカラー
         primary: {
-          DEFAULT: "#6A1B9A", // メインカラー（紫）
-          light: "#AB47BC",
-          dark: "#4A148C",
+          DEFAULT: "rgb(var(--color-primary)",
+          light: "rgb(var(--color-primary)",
+          dark: "rgb(var(--color-primary-dark)",
         },
         secondary: {
           DEFAULT: "#2E7D32", // サブカラー（緑）
@@ -84,6 +84,7 @@ module.exports = {
       // コンテナの最大幅
       maxWidth: {
         'content': '72rem', // 1152px
+        '2xl': '42rem', // ヘッダーの幅に合わせる
       },
 
       // 共通のパディング
@@ -94,10 +95,10 @@ module.exports = {
 
       // 共通のマージン
       spacing: {
-        'section': '3rem',      // mt-12
-        'section-sm': '4rem',   // sm:mt-16
-        'element': '1.5rem',    // mb-6
-        'element-sm': '2rem',   // sm:mb-8
+        'page': 'var(--spacing-page)',
+        'page-sm': 'var(--spacing-page-sm)',
+        'section': 'var(--spacing-section)',
+        'section-sm': 'var(--spacing-section-sm)',
       },
 
       // 共通のボーダー
