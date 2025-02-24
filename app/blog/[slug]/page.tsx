@@ -40,7 +40,7 @@ export default async function Page({ params, searchParams }: Props) {
   }).catch(notFound);
 
   return (
-    <div className="px-page sm:px-page-sm">
+    <div className="px-0 sm:px-page-sm">
       <Article data={data} />
       <div className="mt-12">
         <ButtonLink href="/blog">ブログ一覧へ</ButtonLink>

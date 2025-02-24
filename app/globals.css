@@ -127,304 +127,84 @@ main {
   }
 }
 
-/* コードブロックの基本スタイル */
+/* コードブロック共通のスタイル */
 pre {
-  background-color: rgb(250 250 250) !important;
-  border: 1px solid rgb(229 231 235) !important;
+  background-color: #fafafa !important;
+  border: 1px solid rgb(209 213 219) !important;
+  border-radius: 0.5rem;
+  margin: 1.5rem 0;
+  overflow: hidden;
+  padding: 0.75rem !important;
 }
 
-/* ライトモードのコードブロックスタイル */
-pre code {
-  display: block !important;
-  background: rgb(241 245 249) !important;
-  color: rgb(51 65 85) !important; /* slate-700 */
-  padding: 1rem !important;
+/* shikiのコードブロックスタイル */
+.shiki {
+  display: block;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  background-color: transparent !important;
+  padding: 0.75rem !important;
 }
 
-pre[data-filename] code {
-  padding-top: 3rem !important;
+/* shikiが生成するコードの行のスタイル */
+.shiki .line {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  text-indent: 0 !important;
 }
 
-/* コードブロックのコンテナに関するスタイル */
-[data-filename] {
+.shiki code {
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* ファイル名を持つコードブロック */
+pre[data-filename] {
   position: relative !important;
-  margin-bottom: 3rem !important;
-  border-radius: 0.5rem !important;
-  transition: all 0.2s ease-in-out !important;
+  padding-top: 2.25rem !important;
 }
 
-/* ファイル名表示用のスタイル */
-[data-filename]::after {
+pre[data-filename]::before {
   content: attr(data-filename);
   position: absolute !important;
-  right: 0rem !important;
-  bottom: -2rem !important;
-  font-size: 0.75rem !important;
-  line-height: 1.25 !important;
-  color: rgb(71 85 105) !important;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
-  background-color: rgb(241 245 249) !important;
-  padding: 0.25rem 0.75rem !important;
-  border-radius: 0.375rem !important;
-  border: 1px solid rgb(226 232 240) !important;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05) !important;
-  transition: all 0.2s ease-in-out !important;
-  white-space: nowrap !important;
-  overflow: hidden !important;
-  text-overflow: ellipsis !important;
-  max-width: calc(100% - 2rem) !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.5rem 0.75rem !important;
+  font-family: ui-monospace, monospace !important;
+  font-size: 0.875rem !important;
+  border-bottom: 1px solid rgb(203 213 225) !important;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
 }
 
-/* ダークモード対応 */
-.dark [data-filename]::after {
-  color: rgb(226 232 240) !important;
-  background-color: rgb(30 41 59) !important;
-  border-color: rgb(51 65 85) !important;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+/* ライトモードのスタイル */
+pre {
+  background: rgb(255 255 255) !important;
+}
+
+pre[data-filename]::before {
+  background: rgb(226 232 240) !important;
+  color: rgb(51 65 85) !important;
 }
 
 /* ダークモードのスタイル */
 .dark pre {
-  background-color: rgb(17 24 39) !important;
-  border-color: rgb(55 65 81) !important;
-}
-
-.dark pre code {
-  background: rgb(31 41 55) !important;
-  color: rgb(226 232 240) !important; /* slate-200 */
+  border-color: rgb(75 85 99) !important;
+  background-color: #111827 !important;
 }
 
 .dark pre[data-filename]::before {
-  background: rgb(15 23 42);
-  color: rgb(148 163 184);
-  border-bottom-color: rgb(51 65 85);
-}
-
-/* シンタックスハイライトの色調整 - 共通 */
-.hljs-keyword,
-.hljs-selector-tag,
-.language-typescript .hljs-keyword {
-  color: rgb(124 58 237) !important; /* violet-600 */
-}
-
-.hljs-string,
-.hljs-attr,
-.language-typescript .hljs-string {
-  color: rgb(22 163 74) !important; /* green-600 */
-}
-
-.hljs-number,
-.hljs-literal,
-.language-typescript .hljs-number {
-  color: rgb(234 88 12) !important; /* orange-600 */
-}
-
-.hljs-title,
-.hljs-class,
-.hljs-function,
-.language-typescript .hljs-title {
-  color: rgb(37 99 235) !important; /* blue-600 */
-}
-
-.hljs-comment,
-.hljs-quote,
-.language-typescript .hljs-comment {
-  color: rgb(71 85 105) !important; /* slate-600 */
+  background: rgb(31 41 55) !important;
+  color: rgb(203 213 225) !important;
+  border-color: rgb(71 85 99) !important;
 }
 
 /* インラインコードのスタイル */
 :not(pre) > code {
-  background: rgb(226 232 240) !important;
-  color: rgb(15 23 42) !important;
   padding: 0.25em 0.5em !important;
   border-radius: 0.25rem !important;
   font-size: 0.875em !important;
-  border: 1px solid rgb(203 213 225) !important;
-}
-
-.dark :not(pre) > code {
-  background: rgb(51 65 85) !important;
-  color: rgb(241 245 249) !important;
-  border-color: rgb(71 85 105) !important;
-}
-
-/* シンタックスハイライトの色調整 - ダークモード */
-.dark .hljs-keyword,
-.dark .hljs-selector-tag,
-.dark .language-typescript .hljs-keyword {
-  color: rgb(167 139 250) !important; /* violet-400 */
-}
-
-.dark .hljs-string,
-.dark .hljs-attr,
-.dark .language-typescript .hljs-string {
-  color: rgb(74 222 128) !important; /* green-400 */
-}
-
-.dark .hljs-number,
-.dark .hljs-literal,
-.dark .language-typescript .hljs-number {
-  color: rgb(251 146 60) !important; /* orange-400 */
-}
-
-.dark .hljs-title,
-.dark .hljs-class,
-.dark .hljs-function,
-.dark .language-typescript .hljs-title {
-  color: rgb(96 165 250) !important; /* blue-400 */
-}
-
-.dark .hljs-comment,
-.dark .hljs-quote,
-.dark .language-typescript .hljs-comment {
-  color: rgb(148 163 184) !important; /* slate-400 */
-}
-
-/* 通常のコードテキスト */
-pre code {
-  color: rgb(51 65 85) !important; /* slate-700 */
-}
-
-.dark pre code {
-  color: rgb(226 232 240) !important; /* slate-200 */
-}
-
-/* シンタックスハイライトの色調整 - ライトモード */
-pre code.hljs .hljs-keyword,
-pre code.hljs .hljs-selector-tag,
-pre code.hljs .language-typescript .hljs-keyword {
-  color: rgb(124 58 237) !important; /* violet-600 */
-}
-
-pre code.hljs .hljs-string,
-pre code.hljs .hljs-attr,
-pre code.hljs .language-typescript .hljs-string {
-  color: rgb(22 163 74) !important; /* green-600 */
-}
-
-pre code.hljs .hljs-number,
-pre code.hljs .hljs-literal,
-pre code.hljs .language-typescript .hljs-number {
-  color: rgb(234 88 12) !important; /* orange-600 */
-}
-
-pre code.hljs .hljs-title,
-pre code.hljs .hljs-class,
-pre code.hljs .hljs-function,
-pre code.hljs .language-typescript .hljs-title {
-  color: rgb(37 99 235) !important; /* blue-600 */
-}
-
-pre code.hljs .hljs-comment,
-pre code.hljs .hljs-quote,
-pre code.hljs .language-typescript .hljs-comment {
-  color: rgb(71 85 105) !important; /* slate-600 */
-}
-
-/* シンタックスハイライトの色調整 - ダークモード */
-.dark pre code.hljs .hljs-keyword,
-.dark pre code.hljs .hljs-selector-tag,
-.dark pre code.hljs .language-typescript .hljs-keyword {
-  color: rgb(167 139 250) !important; /* violet-400 */
-}
-
-.dark pre code.hljs .hljs-string,
-.dark pre code.hljs .hljs-attr,
-.dark pre code.hljs .language-typescript .hljs-string {
-  color: rgb(74 222 128) !important; /* green-400 */
-}
-
-.dark pre code.hljs .hljs-number,
-.dark pre code.hljs .hljs-literal,
-.dark pre code.hljs .language-typescript .hljs-number {
-  color: rgb(251 146 60) !important; /* orange-400 */
-}
-
-.dark pre code.hljs .hljs-title,
-.dark pre code.hljs .hljs-class,
-.dark pre code.hljs .hljs-function,
-.dark pre code.hljs .language-typescript .hljs-title {
-  color: rgb(96 165 250) !important; /* blue-400 */
-}
-
-.dark pre code.hljs .hljs-comment,
-.dark pre code.hljs .hljs-quote,
-.dark pre code.hljs .language-typescript .hljs-comment {
-  color: rgb(148 163 184) !important; /* slate-400 */
-}
-
-/* 通常のコードテキスト */
-pre code.hljs {
-  color: rgb(51 65 85) !important; /* slate-700 */
-}
-
-.dark pre code.hljs {
-  color: rgb(226 232 240) !important; /* slate-200 */
-}
-
-/* シンタックスハイライトのリセット（リロード時の問題対策） */
-pre code.hljs * {
-  color: inherit;
-}
-
-/* シンタックスハイライト - ライトモード */
-html pre code.hljs {
-  color: rgb(31 41 55) !important; /* gray-800 - 基本テキスト */
-}
-
-html pre code.hljs .hljs-keyword,
-html pre code.hljs .hljs-selector-tag {
-  color: rgb(79 70 229) !important; /* indigo-600 */
-}
-
-html pre code.hljs .hljs-string,
-html pre code.hljs .hljs-attr {
-  color: rgb(16 135 79) !important; /* green-700 */
-}
-
-html pre code.hljs .hljs-number,
-html pre code.hljs .hljs-literal {
-  color: rgb(194 65 12) !important; /* orange-700 */
-}
-
-html pre code.hljs .hljs-title,
-html pre code.hljs .hljs-class,
-html pre code.hljs .hljs-function {
-  color: rgb(29 78 216) !important; /* blue-700 */
-}
-
-html pre code.hljs .hljs-comment,
-html pre code.hljs .hljs-quote {
-  color: rgb(75 85 99) !important; /* gray-600 */
-}
-
-/* シンタックスハイライト - ダークモード */
-html.dark pre code.hljs {
-  color: rgb(229 231 235) !important; /* gray-200 - 基本テキスト */
-}
-
-html.dark pre code.hljs .hljs-keyword,
-html.dark pre code.hljs .hljs-selector-tag {
-  color: rgb(165 180 252) !important; /* indigo-300 */
-}
-
-html.dark pre code.hljs .hljs-string,
-html.dark pre code.hljs .hljs-attr {
-  color: rgb(110 231 183) !important; /* emerald-300 */
-}
-
-html.dark pre code.hljs .hljs-number,
-html.dark pre code.hljs .hljs-literal {
-  color: rgb(253 186 116) !important; /* orange-300 */
-}
-
-html.dark pre code.hljs .hljs-title,
-html.dark pre code.hljs .hljs-class,
-html.dark pre code.hljs .hljs-function {
-  color: rgb(147 197 253) !important; /* blue-300 */
-}
-
-html.dark pre code.hljs .hljs-comment,
-html.dark pre code.hljs .hljs-quote {
-  color: rgb(156 163 175) !important; /* gray-400 */
 }

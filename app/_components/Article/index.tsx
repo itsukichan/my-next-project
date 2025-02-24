@@ -6,9 +6,7 @@ import type { Blog } from '@/app/_libs/microcms'
 import Date from '@/app/_components/Date'
 import Category from '@/app/_components/Category'
 import Stack from '@/app/_components/Stack'
-import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
-import 'highlight.js/styles/github-dark.css'
+import * as shiki from 'shiki'
 import { useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
@@ -20,41 +18,46 @@ export default function Article({ data }: Props) {
   const { theme } = useTheme()
 
   useEffect(() => {
-    const processCodeBlocks = () => {
+    const processCodeBlocks = async () => {
+      const highlighter = await shiki.createHighlighter({
+        themes: ['github-light', 'github-dark'],
+        langs: ['typescript', 'javascript', 'jsx', 'tsx', 'css', 'json', 'html', 'astro']
+      })
+
       document.querySelectorAll('pre').forEach((pre) => {
-        // コード要素を取得
-        const code = pre.querySelector('code');
-        if (!code) return;
+        const code = pre.querySelector('code')
+        if (!code) return
 
-        // コードブロックのテキストを取得
-        let codeText = code.innerHTML;
+        const decoder = document.createElement('div')
+        decoder.innerHTML = code.innerHTML
+        let codeText = decoder.textContent || ''
 
-        // ファイル名の処理（例: ```typescript:app/page.tsx のような形式）
-        const fileNameMatch = codeText.match(/^([a-zA-Z]+):(.+?)\n/);
+        const fileNameMatch = codeText.match(/^([a-zA-Z]+):(.+?)\n/)
+        let language = 'typescript'
 
         if (fileNameMatch) {
-          const language = fileNameMatch[1];
-          const fileName = fileNameMatch[2].trim();
-
-          // ファイル名を設定
-          pre.setAttribute('data-filename', fileName);
-
-          // 言語クラスを設定
-          code.classList.add(`language-${language}`);
-          code.classList.add('hljs');
-
-          // ファイル名行を削除
-          codeText = codeText.replace(/^([a-zA-Z]+):(.+?)\n/, '');
-          code.innerHTML = codeText;
+          language = fileNameMatch[1]
+          const fileName = fileNameMatch[2].trim()
+          pre.setAttribute('data-filename', fileName)
+          codeText = codeText.replace(/^([a-zA-Z]+):(.+?)\n/, '')
         }
 
-        // シンタックスハイライトの適用
-        hljs.highlightElement(code);
-      });
-    };
+        const currentTheme = theme === 'dark' ? 'github-dark' : 'github-light'
+        const highlightedCode = highlighter.codeToHtml(codeText, {
+          lang: language,
+          theme: currentTheme
+        })
 
-    processCodeBlocks();
-  }, [data, theme]);
+        const cleanedCode = highlightedCode
+          .replace('<pre class="shiki', '<div class="shiki')
+          .replace('</pre>', '</div>')
+
+        pre.innerHTML = cleanedCode
+      })
+    }
+
+    processCodeBlocks()
+  }, [data, theme])
 
   return (
     <article>
@@ -85,12 +88,7 @@ export default function Article({ data }: Props) {
         )}
 
         <div
-          className="prose dark:prose-invert max-w-none
-                     prose-headings:font-bold
-                     prose-a:text-blue-600 dark:prose-a:text-blue-400
-                     prose-img:rounded-lg
-                     prose-pre:p-0
-                     prose-code:before:content-none prose-code:after:content-none"
+          className="prose dark:prose-invert max-w-none"
           dangerouslySetInnerHTML={{ __html: data.content }}
         />
       </Stack>
